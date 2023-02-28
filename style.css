@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Phudu&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Phudu&family=Roboto&display=swap');
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  /* background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(248, 176, 35, 0.8868360277136259) 33%,
+    rgba(253, 181, 29, 0.18706697459584298) 88%,
+    rgba(252, 176, 69, 1) 98%
+  ); */
+  background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+header {
+  font-family: 'Kaushan Script', cursive;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.container h3 {
+  text-align: center;
+  width: 25%;
+  align-self: center;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  color: #fff;
+  text-shadow: 0 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+form {
+  background: radial-gradient(
+    circle,
+    rgba(90, 63, 251, 1) 0%,
+    rgba(70, 165, 252, 0.5) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  padding: 10px;
+  margin: 25px;
+  border-left: 6px solid #fff;
+  border-radius: 8px;
+
+  box-shadow: 5px 12px 10px rgba(0, 0, 0, 0.6);
+}
+
+label {
+  color: #fff;
+  text-shadow: 3px 3px 2px rgba(128, 0, 0, 0.58);
+  font-size: 1.2rem;
+  padding: 10px 0;
+  text-decoration: dashed;
+}
+
+#title,
+#author,
+#pages {
+  width: 50%;
+  height: 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+#readen {
+  align-self: flex-start;
+  /* width: 100%; */
+  padding: 10px;
+  margin: 15px;
+}
+
+button {
+  padding: 10px;
+  width: 25%;
+  align-self: center;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  scale: 0.96;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+.card {
+  margin: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px 10px;
+  background-color: #eee;
+  border-radius: 8px;
+  height: 250px;
+  width: 200px;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #46a5fc;
+}
+
+.card span {
+  margin-top: 15px;
+  color: red;
+}
