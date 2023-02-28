@@ -60,7 +60,9 @@ form {
   );
   display: flex;
   flex-direction: column;
-  width: 75%;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
   padding: 10px;
   margin: 25px;
   border-left: 6px solid #fff;
@@ -88,7 +90,6 @@ label {
 }
 
 #readen {
-  align-self: flex-start;
   /* width: 100%; */
   padding: 10px;
   margin: 15px;
@@ -101,10 +102,13 @@ button {
   border-radius: 25px;
   border: none;
   cursor: pointer;
+  transition: rotate 0.5s ease;
 }
 
-button:focus {
+button:active {
   scale: 0.96;
+  background-color: darksalmon;
+  rotate: 15deg;
 }
 
 .card_container {
@@ -124,6 +128,8 @@ button:focus {
   border-radius: 8px;
   height: 250px;
   width: 200px;
+  rotate: 360deg;
+  transition: rotate 0.5s ease;
 }
 
 .card h3 {
