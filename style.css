@@ -143,3 +143,9 @@ button:active {
   margin-top: 15px;
   color: red;
 }
+
+.card button {
+  margin-left: auto;
+  /* display: flex;
+  justify-content: flex-end; */
+}
