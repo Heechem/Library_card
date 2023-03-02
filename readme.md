@@ -11,3 +11,9 @@ Added the submit action to push the book info into the array
 Added the function to create the div and append it to the DOM
 
 Card Added and Half of the program completed
+
+added the function to delete the card , missing the edit for read or not
+
+Local storage has an error at the begening
+
+missing the resposive design

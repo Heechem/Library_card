@@ -149,3 +149,7 @@ button:active {
   /* display: flex;
   justify-content: flex-end; */
 }
+
+.card button:active {
+  color: white;
+}
