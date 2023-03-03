@@ -17,3 +17,9 @@ added the function to delete the card , missing the edit for read or not
 Local storage has an error at the begening
 
 missing the resposive design
+
+Media query added
+
+Added the display to delete the card , nut missing the Local storage
+
+Bug with local storage , when erasing the first card , all the array is deleted .

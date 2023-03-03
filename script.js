@@ -9,22 +9,41 @@ const formField = document.querySelector('form');
 const container = document.querySelector('.card_container');
 const header = document.getElementById('header');
 
+const cardSpining = [
+  { transform: 'rotate(0) scale(0.5) ' },
+  { transform: 'rotate(360deg) scale(1) ' },
+];
+
+const cardSpinTiming = {
+  duration: 900,
+  iteration: 1,
+};
+
 // vaiables
 let indexStart = 1;
 const text = 'Register the books';
 let speed = 200;
+let readBook;
+let notes = [];
+let addedBook;
+let myLibrary = [];
+
+// get the read it or not information
+function checkRead() {
+  if (readen.checked) {
+    readBook = 'I have read it';
+  } else {
+    readBook = ` I haven't read it `;
+  }
+  return readBook;
+}
+checkRead();
 
 const savedbook = JSON.parse(localStorage.getItem('saved'));
 console.log(savedbook);
-// if (savedbook) {
-//   savedbook.forEach((saved) => bookDisplay(saved));
+// if (notes) {
+//   bookDisplay(savedbook);
 // }
-
-let readBook;
-let notes = [];
-
-let addedBook;
-let myLibrary = [];
 
 // consturctor function
 
@@ -32,22 +51,19 @@ function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = 'not read yet';
+  this.read = read;
 }
 
 // get the read it or not information
 
-function checkRead() {
-  if (readen.checked) {
-    readBook = 'I have read it';
-  } else {
-    readBook = " I haven't read it ";
-  }
-}
-
 // create the book from the consturctor
 function addBookToLibrary() {
-  return (addedBook = new Book(author.value, title.value, pages.value));
+  return (addedBook = new Book(
+    author.value,
+    title.value,
+    pages.value,
+    readBook
+  ));
 }
 
 // get the value entered
@@ -56,40 +72,45 @@ function bookDisplay(book) {
     const author = x.author;
     const title = x.title;
     const pages = x.pages;
-
-    createCard(author, title, pages);
+    const read = readBook;
+    createCard(author, title, pages, read);
   });
-  checkRead();
+  // checkRead();
 
   //append the card to the DOM
 
-  function createCard(title, author, pages, readen) {
+  function createCard(title, author, pages, read) {
     const card = document.createElement('div');
     card.classList.add('card');
+    card.animate(cardSpining, cardSpinTiming);
     card.innerHTML = `
   <button class="delete"><i class="fas fa-trash" ></i></button>
   <h3>${title}</h3>
   <p>This book was written by ${author} and contains ${pages} pages</p>
-  <span>${readBook}</span>
+  <span>${read}</span>
   `;
     container.appendChild(card);
-
+    console.log(read);
     // delete function from the DOM
     const deleteBtn = card.querySelector('.delete');
+    const trash = card.querySelector('.fa-trash');
 
     deleteBtn.addEventListener('click', (e) => {
-      // console.log(card);
-      console.log(notes.length);
+      card.remove();
+      // updateLS();
 
-      card.remove(e.target);
+      // console.log(card);
+      console.log(notes);
+      console.log(e.target);
     });
+    updateLS();
   }
 }
-//button listener
+// button listener
 
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  if (author.value == '' || title.value == '' || pages.value == '') {
+  if (author.value === '' || title.value === '' || pages.value === '') {
     alert('Please enter a value , dont let any blank');
     return;
   }
@@ -111,6 +132,7 @@ addBtn.addEventListener('click', (e) => {
 // local storage function
 
 function updateLS() {
+  console.log(notes);
   const savedbook = [];
   notes.map(() => {
     savedbook.push(addedBook);
@@ -129,6 +151,7 @@ function textWrting() {
   indexStart++;
   if (indexStart > header.length) {
     indexStart = 1;
+    console.log(savedbook);
   }
   setTimeout(textWrting, speed);
 }
