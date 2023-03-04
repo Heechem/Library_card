@@ -1,3 +1,14 @@
+:root {
+  
+    linear-gradient(
+      165deg,
+      hsla(66, 100%, 45%, 1),
+      cubic-bezier(0.49, 0.12, 0.63, 0.92),
+      hsla(210, 80%, 56%, 1)
+    );
+  
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Phudu&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Phudu&family=Roboto&display=swap');
 *,
@@ -62,9 +73,9 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 40%;
   padding: 10px;
-  margin: 25px;
+  margin: 20px;
   border-left: 6px solid #fff;
   border-radius: 8px;
 
@@ -116,18 +127,36 @@ button:active {
   flex-wrap: wrap;
   margin-top: 15px;
 }
+
+.card:hover > :not(:hover) {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 .card {
   margin: 25px;
-
+font-weight: 600;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 25px 10px;
-  background-color: #eee;
-  border-radius: 8px;
+  /* background-color: #eee;
+  border-radius: 8px; */
   height: 250px;
   width: 200px;
+  background: rgba( 0, 0, 0, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 7px );
+-webkit-backdrop-filter: blur( 7px );
+border-radius: 10px;
+}
+
+.card.unread {
+  background: linear-gradient(90deg, rgba(58,90,180,1) 0%, rgba(248,194,35,0.8868360277136259) 33%, rgba(29,236,253,0.37413394919168597) 87%, rgba(141,69,252,1) 98%);
+font-weight: 700;
+transition: background 0.3s ease-in-out;
+
 }
 
 .card.animation {
@@ -139,7 +168,7 @@ button:active {
   margin-bottom: 15px;
   font-weight: 700;
   font-size: 1.3rem;
-  color: #46a5fc;
+  color: #f82346;
 }
 
 .card span {
@@ -149,8 +178,16 @@ button:active {
 
 .card button {
   margin-left: auto;
-  /* display: flex;
-  justify-content: flex-end; */
+}
+.card span.read {
+  color: rgba(29,253,137,0.9214780600461894);
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.card button.edit {
+  display: flex;
+  justify-content: center;
 }
 
 .card button:active {
@@ -175,4 +212,10 @@ button:active {
     font-size: 10px;
     text-align: center;
   }
+}
+
+
+.card:hover{
+  rotate: 10deg;
+  transition: 0.4s ease-in-out;
 }

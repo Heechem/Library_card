@@ -21,7 +21,7 @@ const cardSpinTiming = {
 
 // vaiables
 let indexStart = 1;
-const text = 'Register the books';
+let text = `Register the books`;
 let speed = 200;
 let readBook;
 let notes = [];
@@ -31,9 +31,9 @@ let myLibrary = [];
 // get the read it or not information
 function checkRead() {
   if (readen.checked) {
-    readBook = 'I have read it';
+    readBook = `I have read it`;
   } else {
-    readBook = ` I haven't read it `;
+    readBook = `I haven't read it`;
   }
   return readBook;
 }
@@ -84,20 +84,42 @@ function bookDisplay(book) {
     card.classList.add('card');
     card.animate(cardSpining, cardSpinTiming);
     card.innerHTML = `
+    
   <button class="delete"><i class="fas fa-trash" ></i></button>
+     <button class="edit"> 
+     <i class="fa-brands fa-readme"></i>
+        </button>
   <h3>${title}</h3>
   <p>This book was written by ${author} and contains ${pages} pages</p>
   <span>${read}</span>
   `;
     container.appendChild(card);
-    console.log(read);
+
     // delete function from the DOM
     const deleteBtn = card.querySelector('.delete');
-    const trash = card.querySelector('.fa-trash');
+    const span = card.querySelector('span');
+    const editBtn = card.querySelector('.edit');
+    console.log(editBtn);
+    console.log(span);
+
+    editBtn.addEventListener('click', () => {
+      card.classList.toggle('unread');
+      switch (span.innerText) {
+        case `I haven't read it`:
+          span.innerText = `I have read it`;
+          span.classList.add('read');
+
+          break;
+        case `I have read it`:
+          span.innerText = `I haven't read it`;
+          span.classList.remove('read');
+
+          break;
+      }
+    });
 
     deleteBtn.addEventListener('click', (e) => {
       card.remove();
-      // updateLS();
 
       // console.log(card);
       console.log(notes);
